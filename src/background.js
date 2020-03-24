@@ -1,6 +1,8 @@
 "use strict";
 
 import { app, protocol, BrowserWindow } from "electron";
+import { autoUpdater } from "electron-updater";
+import path from "path";
 import {
   createProtocol
   /* installVueDevtools */
@@ -21,9 +23,12 @@ function createWindow() {
   win = new BrowserWindow({
     width: 800,
     height: 600,
+    title: "iQOS Desktop",
     webPreferences: {
       nodeIntegration: true
-    }
+    },
+    /* global __static */
+    icon: path.join(__static, "icon.png")
   });
 
   if (process.env.WEBPACK_DEV_SERVER_URL) {
@@ -34,6 +39,7 @@ function createWindow() {
     createProtocol("app");
     // Load the index.html when not in development
     win.loadURL("app://./index.html");
+    autoUpdater.checkForUpdatesAndNotify();
   }
 
   win.on("closed", () => {
