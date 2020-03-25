@@ -8,7 +8,7 @@
   },
   "version": "0.1.0",
   "build": {
-    "artifactName": "${name}-${version}-${os}.${ext}",
+    "artifactName": "${name}-${version}-${os}.${ext}"
   },
   "private": true,
   "scripts": {
