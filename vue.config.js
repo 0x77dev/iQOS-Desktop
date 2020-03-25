@@ -3,10 +3,7 @@ module.exports = {
   pluginOptions: {
     electronBuilder: {
       builderOptions: {
-        publish: ["github"],
-        mac: {
-          artifactName: "iQOS Desktop"
-        }
+        publish: ["github"]
       }
     }
   }
