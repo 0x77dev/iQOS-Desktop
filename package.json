@@ -7,6 +7,9 @@
     "url": "https://github.com/0x77dev/iQOS-Desktop.git"
   },
   "version": "0.1.0",
+  "build": {
+    "artifactName": "${name}-${version}-${os}.${ext}",
+  },
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
