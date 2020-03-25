@@ -2,7 +2,7 @@ import Vue from "vue";
 import Vuex from "vuex";
 import iQOS from "iqos";
 const update = () => {
-  store.state.iqos = iqos;
+  store.state.batteryValue = iqos.batteryValue;
 };
 
 const iqos = new iQOS(navigator.bluetooth, update);
@@ -10,7 +10,7 @@ const iqos = new iQOS(navigator.bluetooth, update);
 Vue.use(Vuex);
 export const store = new Vuex.Store({
   state: {
-    iqos: null
+    batteryValue: null
   },
   mutations: {
     start() {
