@@ -17,7 +17,12 @@ export default {
 </script>
 <style>
 .theme--dark,
-.v-application {
+.v-application,
+.theme--dark.v-application,
+.v-application--wrap,
+.v-content,
+.v-content__wrap,
+#app {
   background: #12121259;
 }
 </style>

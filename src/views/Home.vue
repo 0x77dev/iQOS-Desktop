@@ -3,7 +3,6 @@
     <v-row class="text-center">
       <v-col cols="12">
         <v-img
-          v-if="!connecting"
           :src="require('../assets/logo.png')"
           class="my-3"
           contain
@@ -35,10 +34,23 @@
             <v-card-title
               >Holder:
               {{
-                !batteryValue.holderReady ? "Ready" : batteryValue.holderReady
+                !batteryValue.holderReady ? "Ready ✅" : "Not Ready ❌"
               }}</v-card-title
             >
-            <v-card-text>Case: {{ batteryValue.case }}%</v-card-text>
+            <v-card-text
+              >Case: {{ batteryValue.case }}%
+              <v-progress-linear
+                color="black"
+                :value="batteryValue.case"
+              ></v-progress-linear
+            ></v-card-text>
+          </v-card>
+          <br />
+          <v-card>
+            <v-card-title
+              >Tip 💡: You can minimize this window, you will receive
+              notification.</v-card-title
+            >
           </v-card>
         </v-col>
       </v-col>
@@ -61,6 +73,11 @@ export default {
     start() {
       this.$store.commit("start");
       this.connecting = true;
+    }
+  },
+  watch: {
+    batteryValue(batteryValue) {
+      if (batteryValue !== null) this.connecting = true;
     }
   }
 };
